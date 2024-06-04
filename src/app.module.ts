@@ -1,9 +1,9 @@
 import { Module } from '@nestjs/common';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ConfigModule } from '@nestjs/config';
-
+import { ResultadosModule } from './modules/resultados/resultados.module';
+import { JugadoresModule } from './modules/jugadores/jugadores.module';
+import { TorneosModule } from './modules/torneos/torneos.module';
 @Module({
   imports: [
     ConfigModule.forRoot({ isGlobal: true }),
@@ -17,11 +17,10 @@ import { ConfigModule } from '@nestjs/config';
       autoLoadEntities: true,
       synchronize: true, // No usar en producción
     }),
-    // JugadoresModule,
-    // TorneosModule,
-    // ParticipantesModule,
-    // CompetenciasModule,
-    // ResultadosModule
+    ResultadosModule,
+    JugadoresModule,
+    TorneosModule,
   ],
+  providers: [],
 })
 export class AppModule {}

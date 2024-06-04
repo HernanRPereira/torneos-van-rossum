@@ -1,20 +1,11 @@
-import { IsNotEmpty, IsNumber } from 'class-validator';
+import { IsInt, IsString } from 'class-validator';
 
 export class CreateResultadoDto {
-  @IsNotEmpty()
-  competenciaId: number;
+  @IsInt()
+  readonly torneoId: number;
 
-  @IsNotEmpty()
-  ganadorId: number;
+  @IsString()
+  readonly winner: string;
 
-  @IsNotEmpty()
-  perdedorId: number;
-
-  @IsNotEmpty()
-  @IsNumber()
-  puntajeGanador: number;
-
-  @IsNotEmpty()
-  @IsNumber()
-  puntajePerdedor: number;
+  readonly resultadoDate: Date;
 }

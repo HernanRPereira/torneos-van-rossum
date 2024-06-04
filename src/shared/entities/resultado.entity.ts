@@ -1,24 +1,25 @@
 import { Entity, PrimaryGeneratedColumn, ManyToOne, Column } from 'typeorm';
-import { Competencia } from './competencia.entity';
-import { Jugador } from './jugador.entity';
+import { Torneo } from './torneo.entity';
 
 @Entity()
 export class Resultado {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @ManyToOne(() => Competencia, (competencia) => competencia.id)
-  competencia: Competencia;
-
-  @ManyToOne(() => Jugador, (jugador) => jugador.id)
-  ganador: Jugador;
-
-  @ManyToOne(() => Jugador, (jugador) => jugador.id)
-  perdedor: Jugador;
+  @ManyToOne(() => Torneo, (torneo) => torneo.resultados)
+  torneo: Torneo;
 
   @Column()
-  puntajeGanador: number;
+  winner: string;
 
   @Column()
-  puntajePerdedor: number;
+  resultadoDate: Date;
+
+  @Column({
+    type: 'timestamp',
+    default: null,
+    nullable: true,
+    name: 'deleted_at',
+  })
+  deletedAt: Date; // Columna para soft delete
 }
