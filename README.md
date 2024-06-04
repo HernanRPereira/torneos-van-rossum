@@ -58,15 +58,11 @@ $ npm run test:e2e
 $ npm run test:cov
 ```
 
-## Support
+## GitHub repository
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+(https://github.com/Misttes/torneos-van-rossum.git)
 
-## Stay in touch
-
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+![GitHub](https://miro.medium.com/v2/resize:fit:720/format:webp/0*N1fmHtI8gmkH_2Vu.png)
 
 ## License
 
