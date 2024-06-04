@@ -1,4 +1,12 @@
-import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
+import {
+  Entity,
+  Column,
+  PrimaryGeneratedColumn,
+  ManyToMany,
+  OneToMany,
+} from 'typeorm';
+import { Jugador } from './jugador.entity';
+import { Resultado } from './resultado.entity';
 
 @Entity()
 export class Torneo {
@@ -6,14 +14,22 @@ export class Torneo {
   id: number;
 
   @Column()
-  nombre: string;
+  title: string;
 
   @Column()
-  fechaInicio: string;
+  description: string;
 
-  @Column()
-  fechaFin: string;
+  @ManyToMany(() => Jugador, (jugador) => jugador.torneos)
+  jugadores: Jugador[];
 
-  @Column({ nullable: true })
-  descripcion: string;
+  @OneToMany(() => Resultado, (resultado) => resultado.torneo)
+  resultados: Resultado[];
+
+  @Column({
+    type: 'timestamp',
+    default: null,
+    nullable: true,
+    name: 'deleted_at',
+  })
+  deletedAt: Date; // Columna para soft delete
 }

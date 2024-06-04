@@ -1,17 +1,15 @@
-import { IsNotEmpty, IsDateString, IsOptional } from 'class-validator';
+import { Type } from 'class-transformer';
+import { IsArray, IsString, ValidateNested } from 'class-validator';
 
 export class CreateTorneoDto {
-  @IsNotEmpty()
-  nombre: string;
+  @IsString()
+  readonly title: string;
 
-  @IsNotEmpty()
-  @IsDateString()
-  fechaInicio: string;
+  @IsString()
+  description: string;
 
-  @IsNotEmpty()
-  @IsDateString()
-  fechaFin: string;
-
-  @IsOptional()
-  descripcion: string;
+  @IsArray()
+  @ValidateNested({ each: true })
+  @Type(() => Number)
+  readonly jugadorIds: number[];
 }

@@ -1,17 +1,16 @@
-import { IsOptional, IsDateString } from 'class-validator';
+import { Type } from 'class-transformer';
+import { IsOptional, IsDateString, IsString, IsArray, ValidateNested } from 'class-validator';
 
 export class UpdateTorneoDto {
   @IsOptional()
-  nombre?: string;
+  @IsString()
+  readonly title?: string;
+
+  readonly description?: string;
 
   @IsOptional()
-  @IsDateString()
-  fechaInicio?: string;
-
-  @IsOptional()
-  @IsDateString()
-  fechaFin?: string;
-
-  @IsOptional()
-  descripcion?: string;
+  @IsArray()
+  @ValidateNested({ each: true })
+  @Type(() => Number)
+  readonly jugadorIds?: number[];
 }
