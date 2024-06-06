@@ -17,13 +17,13 @@ export class JugadoresService {
   }
 
   findAll(skip: number = 0, take: number = 10): Promise<Jugador[]> {
-    return this.jugadorRepository.find({ relations: ['books'], skip, take });
+    return this.jugadorRepository.find({ relations: ['torneos'], skip, take });
   }
 
   findOne(id: number): Promise<Jugador> {
     return this.jugadorRepository.findOne({
       where: { id },
-      relations: ['books'],
+      relations: ['torneos'],
     });
   }
 
