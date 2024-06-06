@@ -4,6 +4,7 @@ import { ConfigModule } from '@nestjs/config';
 import { ResultadosModule } from './modules/resultados/resultados.module';
 import { JugadoresModule } from './modules/jugadores/jugadores.module';
 import { TorneosModule } from './modules/torneos/torneos.module';
+import { TestDbService } from './modules/test-db/test-db.service';
 @Module({
   imports: [
     ConfigModule.forRoot({ isGlobal: true }),
@@ -17,10 +18,10 @@ import { TorneosModule } from './modules/torneos/torneos.module';
       autoLoadEntities: true,
       synchronize: true, // No usar en producción
     }),
-    ResultadosModule,
-    JugadoresModule,
     TorneosModule,
+    JugadoresModule,
+    ResultadosModule,
   ],
-  providers: [],
+  providers: [TestDbService],
 })
 export class AppModule {}
