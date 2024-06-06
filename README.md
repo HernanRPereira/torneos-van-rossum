@@ -64,6 +64,26 @@ $ npm run test:cov
 
 ![GitHub](https://miro.medium.com/v2/resize:fit:720/format:webp/0*N1fmHtI8gmkH_2Vu.png)
 
+## Schemes
+
+<h3>Create a new Torneo</h3>
+{
+  "title": " ",
+  "description": " ",
+  "jugadorIds":[]
+}
+
+<h3>Create a new Jugador</h3>
+{
+  "name": "string"
+}
+
+<h3>Create a new Resultado</h3>
+{
+  "torneoId": 1,
+  "winner": "winner",
+  "resultadoDate": "2024-06-05"
+}
 ## License
 
 Nest is [MIT licensed](LICENSE).
