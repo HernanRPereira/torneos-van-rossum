@@ -17,6 +17,9 @@ import { TestDbService } from './modules/test-db/test-db.service';
       database: process.env.DB_NAME,
       autoLoadEntities: true,
       synchronize: true, // No usar en producción
+      extra: {
+        ssl:true
+      }
     }),
     TorneosModule,
     JugadoresModule,
